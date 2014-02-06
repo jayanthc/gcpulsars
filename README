@@ -1,0 +1,35 @@
+gcpulsars README
+-------------------------------------------------------------------------------
+
+gcpulsars is a Bayesian analysis + Monte Carlo simulation toolset to constrain
+the population size of radio pulsars in the Galactic centre. For more details
+on gcpulsars, please refer Chennamangalam and Lorimer (2014).
+
+System and software requirements: The Python programs require the Numpy, Scipy,
+and Matplotlib libraries.
+
+To compile galcenbayes and galcenbayes_fixedf, just run 'make'.
+
+Usage
+-----
+
+The typical sequence of program execution is as follows.
+
+0. Run calcsmin.py: Calculates the S_min corresponding to the inner parsec,
+    given survey parameters.
+1. Run galcenbayes: Generates a file containing the posterior on N.
+2. Run plotpdf.py: Plots the posterior PDF, as output by the previous step
+    (similar to Figure 1 of paper).
+3. Run fixedf_runmulti.rb: Runs galcenbayes_fixedf for a range of magnetar
+    fractions.
+4. Run plotnvsf.py: Plots the upper limit on N vs. magnetar fraction f, as
+    output by the previous step (similar to Figure 2 of paper).
+5. Run predictmulti.py: Runs the MC simulation for a given survey, given
+    the posterior on N based on that survey.
+6. Run predictmulti2.py: Runs the MC simulation for a range of values of N.
+7. Run plotpredict.py: Plots n_obs vs. N, as output by the previous step
+    (similar to Figure 3 of paper).
+
+Please refer the individual source files for program usage information and
+examples.
+
